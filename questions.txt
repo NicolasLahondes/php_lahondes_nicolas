@@ -1,0 +1,36 @@
+************************************************************************************************************************************
+1
+
+Un constructeur est la partie d'une classe qui permet de rentrer les paramètres nécessaires à la création d'une nouvelle instance de la classe.
+
+EX:
+
+Ma classe voiture attends les paramètres "couleur", "taille", "prix".
+
+Ces différents paramètres se retrouvent dans le constructeur au moment de l'appeler.
+
+
+new voiture ("jaune","5mètres","18,000")
+
+************************************************************************************************************************************
+2 
+
+Les getters et les setters sont des méthodes de classe qui permettent d'intéragir avec les éléments de cette dernière.
+
+si je souhaite changer la couleur de ma voiture j'utiliserai un setter.
+
+voiture->setColor("rouge");
+
+si je souhaite afficher la valeur actuelle de la taille de ma voiture j'utiliserai un getter.
+
+echo voiture->getSize();
+
+************************************************************************************************************************************
+3
+
+Un MVC (Model, Vue, Controlleur) est une schéma d'architecture de programmation permettant de séparer le code de manière logique et distincte.
+
+L'utilisateur envoie une requête au controleur (en passant par la vue), 
+le controlleur va prendre les données correspondant à la requête dans le model,
+le model renvoie les données au controleur,
+le controleur les envoies à la vue.
