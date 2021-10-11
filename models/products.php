@@ -2,7 +2,7 @@
 
 class Products
 {
-
+    private $id;
     private $name;
     private $longdescription;
     private $visual;
@@ -10,8 +10,9 @@ class Products
     private $designername;
     private $designermail;
 
-    public function __construct($name, $longdescription, $visual, $price, $designername, $designermail)
+    public function __construct($id, $name, $longdescription, $visual, $price, $designername, $designermail)
     {
+        $this->id = $id;
         $this->name = $name;
         $this->longdescription = $longdescription;
         $this->visual = $visual;
@@ -139,13 +140,50 @@ class Products
 
         return $this;
     }
-    public function addCategory(&$aCategories)
+
+    /**
+     * Get the value of id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set the value of id
+     *
+     * @return  self
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+
+
+
+    /**
+     * addCategory
+     *
+     * @param  mixed $aCategories
+     * @return void
+     */
+    public function addProduct(&$aCategories)
     {
         array_push($aCategories, $this);
     }
 
 
-    
+
+    public function deleteProduct(&$aProduct)
+    {
+        unset($aProduct[array_search($this, $aProduct)]);
+    }
+
+
+
     /**
      * calculateTTC
      *
