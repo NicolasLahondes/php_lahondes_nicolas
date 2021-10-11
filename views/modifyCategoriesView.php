@@ -13,10 +13,6 @@
                 <input class="form-control" type="string" id="shortDescToModify" name="shortDescToModify" value="<?php if(!empty($_GET['name'])): { echo $_GET['short'];} endif; ?>">
             </div>
             <div>
-                <label class="form-label" for="id">Index</label>
-                <input class="form-control" type="string" id="indexToModify" name="indexToModify" value="<?php echo $_GET['id']; ?>">
-            </div>
-            <div>
                 <button type="submit" name="modified" value="modified" class="btn btn-primary">Modifier
                 </button>
             </div>

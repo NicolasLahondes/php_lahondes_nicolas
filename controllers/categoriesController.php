@@ -20,19 +20,25 @@ endif;
 // modify element
 if (!empty($_POST['nameToModify'])) :
     foreach ($arrCategory as $Category) :
-        if ($_POST['indexToModify'] == $Category->getOrderNumber()) :
-            var_dump($_POST);
-            $Category->updateCategory('name', $_POST['nameToModify']);
-            $Category->updateCategory('shortDesc', $_POST['shortDescToModify']);
-            $Category->updateCategory('orderNumber', $_POST['indexToModify']);
-            var_dump($Category);
+        if (!empty($_POST['indexToModify'])) :
+            if ($_POST['indexToModify'] == $Category->getOrderNumber()) :
+                var_dump($_POST);
+                if (strlen($Category->getName()) > 1 && strlen($Category->getName()) < 50) {
+                    $Category->updateCategory('name', $_POST['nameToModify']);
+                } else {
+                    echo "error";
+                }
+                $Category->updateCategory('shortDesc', $_POST['shortDescToModify']);
+                $Category->updateCategory('orderNumber', $_POST['indexToModify']);
+                var_dump($Category);
+            endif;
         endif;
     endforeach;
 endif;
 
 // supress array element
 if (!empty($_GET['delete'])) {
-    echo "cequisepasse";
+
     foreach ($arrCategory as $Category) :
         if ($_GET['id'] == $Category->getOrderNumber()) :
             $Category->deleteCategory($arrCategory);
